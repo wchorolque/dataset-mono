@@ -1,6 +1,8 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+using UI;
 
 namespace DataSetAccess
 {
@@ -60,13 +62,18 @@ namespace DataSetAccess
             miComando = null;
         }
 
+        [STAThread]
         public static void Main (string[] args)
         {
+            /*
             String connectionString = @"Data Source=localhost\SQLExpress2005; Initial Catalog=Northwind; User ID=sa; Password=admin";
             DescribirColumnasDeTabla (connectionString);
             Console.WriteLine ("\n".PadRight (100, '=') + "\n");
             VerContenidoDeLaTabla (connectionString);
             Console.ReadLine ();
+            */
+            Application.EnableVisualStyles ();
+            Application.Run (new UI.FrmEmployee (new DAL.Employee ()));
         }
     }
 }
